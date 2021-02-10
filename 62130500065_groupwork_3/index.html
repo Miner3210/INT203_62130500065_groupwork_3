@@ -33,19 +33,36 @@
   <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
   <script src="https://unpkg.com/vue@next"></script>
 
-
+<style>
+  img{
+    width: 250px;
+    height: 250px;
+  }
+  img.heart{
+    width: 25px;
+    height: 25px;
+  }
+  </style>
 
 </head>
 
 <body>
 
   <div id="app" class="">
-    <li v-for="item in items ">
-      <div v:html="item.message">
-      {{ item.message }}
-    </li>
+    <h2 class="text-center">Photo Gallery ({{ countUnLove }})</h2>
+    <ul v-for="(item,index) in items "class="justify-self-stretch text-center m-4">
+      <li class="inline p-10 py-28" v-on:click="toogleLove(index)">
+      <img v-bind:src="item.img" class="inline">
+      <p class="inline" v-html="item.message"  class="space-x-4">
+        {{ item.message}}                 
+      </p>
+      <img class="heart inline" src="./images/heart.png" v-show="item.Love">
+    </li>  
+
+      
+    </ul>
   </div>
-  </div>
+ 
 
 
 
